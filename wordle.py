@@ -22,6 +22,15 @@ GAME_BOARD =  [
     [f"{bcolors.OKBLUE}-{bcolors.ENDC}",f"{bcolors.OKBLUE}-{bcolors.ENDC}",f"{bcolors.OKBLUE}-{bcolors.ENDC}",f"{bcolors.OKBLUE}-{bcolors.ENDC}",f"{bcolors.OKBLUE}-{bcolors.ENDC}"]
 ]
 
+GAME_BOARD2 =  [
+    ["-","-","-","-","-"],
+    ["-","-","-","-","-"],
+    ["-","-","-","-","-"],
+    ["-","-","-","-","-"],
+    ["-","-","-","-","-"],
+    ["-","-","-","-","-"]
+]
+
 WORDS_FILE = 'words.txt'
 
 class Wordle(object):
@@ -55,6 +64,10 @@ class Wordle(object):
         df.columns = [f"{bcolors.OKBLUE}1{bcolors.ENDC}",f"{bcolors.OKBLUE}2{bcolors.ENDC}",f"{bcolors.OKBLUE}3{bcolors.ENDC}",f"{bcolors.OKBLUE}4{bcolors.ENDC}",f"{bcolors.OKBLUE}5{bcolors.ENDC}"]
         print(df)
     
+    def check_wordle_flask(self, guess):
+        pass
+
+
     def _check_wordle(self, guess):
         list_guess = {i: guess[i] for i in range(0, len(guess))}
 
