@@ -48,6 +48,9 @@ class Wordle(object):
             i: self.wordle[i] for i in range(0, len(self.wordle))
         }
 
+    def redraw_word(self):
+        return self._define_random_wordle()[0]
+
     def _import_words(self) -> dict:
         words = []
         with open(WORDS_FILE, 'r') as f:
@@ -111,16 +114,21 @@ class Wordle(object):
         while self.move < 6:
             self.print_game_board()
             guess = input("enter 5 letter word: ")
-            if list(guess) == list(self.wordle):
+            if guess == 'exit':
+                return
+            if len(list(guess)) != 5:
+                continue
+            elif list(guess) == list(self.wordle):
                 check_guess = self._check_wordle(guess)
                 self.game_board[self.move] = check_guess
                 self.print_game_board()
                 print('you win')
                 return
-            check_guess = self._check_wordle(guess)
-            self.wordle_overlap()
-            self.game_board[self.move] = check_guess
-            self.move+=1
+            else:
+                check_guess = self._check_wordle(guess)
+                self.wordle_overlap()
+                self.game_board[self.move] = check_guess
+                self.move+=1
 
         self.print_game_board()
         print(f'the wordle was: {self.wordle}')
