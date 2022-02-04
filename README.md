@@ -1,0 +1,2 @@
+# wordle
+simple wordle implementation
