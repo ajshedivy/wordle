@@ -1,4 +1,3 @@
-from tkinter.messagebox import showinfo
 import pandas as pd
 import wordle
 from flask import Flask, request

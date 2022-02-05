@@ -12,7 +12,7 @@ conda activate wordle
 if [ $? -ne 0 ]; then
    	echo "environment does not exist"
 	echo "creating wordle environment"
-	conda env create -f env.yml
+	conda env create -n wordle -f requirements.txt
 	conda activate wordle
 fi
 echo "environment activated"
