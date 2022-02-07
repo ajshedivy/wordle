@@ -28,5 +28,7 @@ Here is the flask home page and Game page:
 
 ![output](images/flask-capture.PNG)
 
+![output](images/game-capture.PNG)
+
 
 
