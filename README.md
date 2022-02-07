@@ -14,7 +14,9 @@ To run the app, first clone this repository and cd into `wordle/`. Using the com
 ```
 To run the terminal client:
 
-`$ bash run.sh --option terminal`
+```
+$ bash run.sh --option terminal
+```
 
 Here is the terminal output:
 
@@ -22,11 +24,15 @@ Here is the terminal output:
 
 To run the Flask application:
 
-`$ bash run.sh --option flask`
+```
+$ bash run.sh --option flask
+```
 
 Here is the flask home page and Game page:
 
 ![output](images/flask-capture.PNG)
+
+![output](images/game-capture.PNG)
 
 
 
