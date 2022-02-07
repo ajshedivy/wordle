@@ -24,3 +24,9 @@ To run the Flask application:
 
 `$ bash run.sh --option flask`
 
+Here is the flask home page and Game page:
+
+![output](images/flask-capture.PNG)
+
+
+
