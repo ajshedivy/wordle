@@ -70,8 +70,12 @@ class Wordle(object):
     def check_wordle_flask(self, guess):
         pass
 
+    def word_exists(self, guess):
+        return True if guess in self.words.keys() else False
+
 
     def _check_wordle(self, guess):
+
         list_guess = {i: guess[i] for i in range(0, len(guess))}
 
         check = []
@@ -117,6 +121,10 @@ class Wordle(object):
             if guess == 'exit':
                 return
             if len(list(guess)) != 5:
+                print("word is not 5 letters ...")
+                continue
+            elif not self.word_exists(guess):
+                print("word not in list ...")
                 continue
             elif list(guess) == list(self.wordle):
                 check_guess = self._check_wordle(guess)
