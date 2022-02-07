@@ -18,6 +18,8 @@ To run the terminal client:
 
 Here is the terminal output:
 
+![output](images/terminal-capture.PNG)
+
 To run the Flask application:
 
 `$ bash run.sh --option flask`
