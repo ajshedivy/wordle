@@ -1,7 +1,42 @@
 #!/bin/bash
 
-if (($# != 1)) || [ "$1" != "web" ] && [ "$1" != "terminal" ]; then
-    echo "usage: bash run.sh [web|terminal]"
+if (($# == 0)); then
+    echo "usage: bash run.sh --option [web|terminal]"
+    exit 0
+fi
+
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -o|--option)
+      EXTENSION="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -*|--*)
+      echo "Unknown option $1"
+      exit 1
+      ;;
+    *)
+      POSITIONAL_ARGS+=("$1") # save positional arg
+      shift # past argument
+      ;;
+  esac
+done
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+echo "GAME OPTION  = ${EXTENSION}"
+
+if [[ -n $1 ]]; then
+    echo "Last line of file specified as non-opt/last argument:"
+    echo "usage: bash run.sh --option [web|terminal]"
+    exit 0
+fi
+
+if [ ${EXTENSION} != "web" ] && [ ${EXTENSION} != "terminal" ]; then
+    echo "invalid game mode"
+    echo "usage: bash run.sh --option [web|terminal]"
     exit 0
 fi
 
@@ -17,10 +52,10 @@ if [ $? -ne 0 ]; then
 fi
 echo "environment activated"
 
-if [ "$1" == "web" ]; then
+if [ ${EXTENSION} == "web" ]; then
     python app.py
 fi
 
-if [ "$1" == "terminal" ]; then
+if [ ${EXTENSION} == "terminal" ]; then
     python main.py
 fi
