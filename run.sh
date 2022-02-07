@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if (($# == 0)); then
-    echo "usage: bash run.sh --option [web|terminal]"
+    echo "usage: bash run.sh --option [flask|terminal]"
     exit 0
 fi
 
@@ -30,13 +30,13 @@ echo "GAME OPTION  = ${EXTENSION}"
 
 if [[ -n $1 ]]; then
     echo "Last line of file specified as non-opt/last argument:"
-    echo "usage: bash run.sh --option [web|terminal]"
+    echo "usage: bash run.sh --option [flask|terminal]"
     exit 0
 fi
 
-if [ ${EXTENSION} != "web" ] && [ ${EXTENSION} != "terminal" ]; then
+if [ ${EXTENSION} != "flask" ] && [ ${EXTENSION} != "terminal" ]; then
     echo "invalid game mode"
-    echo "usage: bash run.sh --option [web|terminal]"
+    echo "usage: bash run.sh --option [flask|terminal]"
     exit 0
 fi
 
@@ -52,7 +52,7 @@ if [ $? -ne 0 ]; then
 fi
 echo "environment activated"
 
-if [ ${EXTENSION} == "web" ]; then
+if [ ${EXTENSION} == "flask" ]; then
     python app.py
 fi
 
